@@ -1,5 +1,5 @@
 # Elgin Printer Bridge - ESC/POS
-
+#teste do André
 Bridge Android simples que recebe Intents do Fully Kiosk e imprime texto em impressoras Bluetooth compatíveis ESC/POS (testado com Elgin I9).
 
 ## Como funciona
