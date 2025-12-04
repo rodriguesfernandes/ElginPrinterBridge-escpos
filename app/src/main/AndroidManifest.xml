@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.elgin.bridge">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:label="Elgin Printer Bridge"
+        android:exported="true">
+
+        <receiver
+            android:name="com.elgin.bridge.PrintReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.elgin.bridge.PRINT" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
