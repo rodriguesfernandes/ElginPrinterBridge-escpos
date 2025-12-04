@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class PrintReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val raw = intent.getStringExtra("text") ?: return
-        // permitir parâmetros no formato: "text=...&mac=AA:BB:CC:..."
         val params = raw.split("&").mapNotNull {
             val parts = it.split("=")
             if (parts.size >= 2) parts[0] to parts.subList(1, parts.size).joinToString("=") else null

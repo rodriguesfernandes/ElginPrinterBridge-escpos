@@ -1,2 +1,2 @@
-rootProject.name = 'ElginPrinterBridge-escpos'
+rootProject.name = 'ElginPrinterBridge'
 include ':app'

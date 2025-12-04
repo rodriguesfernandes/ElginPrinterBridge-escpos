@@ -8,15 +8,15 @@ Bridge Android simples que recebe Intents do Fully Kiosk e imprime texto em impr
   - Extra: `text` (String) — texto a imprimir
   - Extra opcional: `mac` (String) — endereço MAC da impressora. Se omitido, o app tenta conectar à impressora pareada com nome que contenha `I9`.
 
-## Como obter o APK pronto (sem Android Studio)
-1. Crie um repositório no GitHub e suba este projeto.
-2. Vá em Settings → Actions e habilite GitHub Actions (padrão).
-3. No push para `main`, o workflow `.github/workflows/android-build.yml` fará `assembleRelease` e publicará o APK como artifact.
-4. Baixe o APK nas Actions do repositório → Artifacts.
+## Gerar APK sem Android Studio (usando GitHub Actions)
+1. Crie um repositório no GitHub com o nome **ElginPrinterBridge**.
+2. Faça commit de todos os arquivos deste projeto na branch `main`.
+3. O workflow `.github/workflows/android-build.yml` usa Gradle 8.2 e rodará automaticamente na chegada do push.
+4. O artefato APK de debug estará disponível em Actions -> run -> Artifacts como `apks`.
 
 ## Como usar no tablet
 1. Habilite instalação de fontes desconhecidas.
-2. Instale o APK.
+2. Instale o APK (debug) baixado do workflow.
 3. Pareie a impressora Elgin I9 via **Configurações > Bluetooth** do Android.
 4. Configure Fully Kiosk para carregar seu Start URL.
 5. No seu web, chame:
@@ -30,4 +30,3 @@ ou, enviando MAC (opcional):
 ```js
 fully.sendIntent("com.elgin.bridge.PRINT", "text=Senha 001&mac=AA:BB:CC:11:22:33");
 ```
-
